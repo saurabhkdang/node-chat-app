@@ -3,7 +3,7 @@ const http = require('http')
 const express =require('express')
 const socketio = require('socket.io')
 const Filter = require('bad-words')
-const { generateMessage, generateLocationmessage } = require('./utils/messages')
+const { generateMessage, generateLocationmessage, generateImageMessage } = require('./utils/messages')
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./utils/users')
 
 const app = express()
@@ -66,6 +66,12 @@ io.on('connection', (socket) => {
     socket.on('sendLocation', (coords, cb) => {
         const user = getUser(socket.id)
         io.to(user.room).emit('locationMessage', generateLocationmessage(user.username, `https://google.com/maps?q=${coords.latitude},${coords.longitude}`))
+        cb()
+    })
+
+    socket.on('sendImage', (image, cb) => {
+        const user = getUser(socket.id)
+        io.to(user.room).emit('imageMessage', generateImageMessage(user.username, image))
         cb()
     })
 })

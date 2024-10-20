@@ -31,7 +31,7 @@ label {
     color: #777;
 }
 
-input {
+input, select {
     border: 1px solid #eeeeee;
     padding: 12px;
     outline: none;
@@ -78,7 +78,8 @@ button:disabled {
     width: 100%;
 }
 
-.centered-form input {
+.centered-form input,
+.centered-form select {
     margin-bottom: 16px;
     width: 100%;
 }
@@ -142,6 +143,75 @@ button:disabled {
     padding: 24px;
 }
 
+#message-form {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+}
+
+#message-form input {
+    border: 1px solid #eeeeee;
+    padding: 12px;
+    margin-right: 16px;
+    flex-grow: 1;
+    border-radius: 20px;
+    outline: none;
+}
+
+#message-form button[type="submit"] {
+    font-size: 14px;
+    background-color: #7C5CBF;
+    color: white;
+    border-radius: 20px;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#message-form button[type="submit"]:hover {
+    background-color: #6b47b8;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 16px;
+}
+
+.action-buttons button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.action-buttons button img {
+    width: 24px;
+    height: 24px;
+}
+
+/* File upload styling to look like a button */
+.custom-file-upload {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0;
+}
+
+.custom-file-upload img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Hide actual file input */
+input[type="file"] {
+    display: none;
+}
+
+label.custom-file-upload {
+    margin-bottom: 0;
+}
+
 .compose form {
     display: flex;
     flex-grow: 1;
@@ -180,4 +250,9 @@ button:disabled {
     list-style-type: none;
     font-weight: 300;
     padding: 12px 24px 0 24px;
+}
+
+.room-logout {
+    text-decoration: none;
+    color: white;
 }
